@@ -2,6 +2,13 @@
   <div class="landing">
     <ReefLogo />
     <BubblesAnimation />
+
+    <div class="landing__background">
+      <img src="/reef_left.png">
+      <img src="/reef_right.png">
+      <img src="/shape.png">
+    </div>
+
     <div class="container">
       <div>
         <Card3D />
@@ -74,7 +81,13 @@ body {
   align-items: center;
   padding: 50px;
   padding-bottom: 25px;
-  background: linear-gradient(to bottom, #2c024d, #7f1a62);
+  background: linear-gradient(
+    to bottom,
+    #2c024d,
+    #530b96,
+    #861d6d 50%,
+    #2c024d
+  );
   background-repeat: no-repeat;
   background-size: cover;
   animation: appear 3s;
@@ -134,6 +147,35 @@ body {
     z-index: 1;
   }
 
+  .landing__background {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+
+    img {
+      position: absolute;
+
+      &:nth-child(1) {
+        width: 37%;
+        left: -2%;
+        bottom: 0;
+      }
+
+      &:nth-child(2) {
+        width: 37%;
+        right: -5%;
+        bottom: 0;
+      }
+
+      &:nth-child(3) {
+        width: 100%;
+        bottom: 0;
+      }
+    }
+  }
+
   @media only screen and (max-width: 1250px) {
 
     .container {
@@ -161,9 +203,9 @@ body {
       padding: 20px 0 50px 0;
 
       .card-3d {
-        margin: 15px 0;
-        width: 250px;
-        height: 155px;
+        margin: 15px 0 0 0;
+        width: 300px;
+        height: 177px;
       }
 
       .text {
